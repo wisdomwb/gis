@@ -1,13 +1,8 @@
 {
   "pages": [
-<<<<<<< HEAD
-=======
     "pages/map/map",
->>>>>>> a0ff66d138980a253877aba9cb1a1b9474e8731f
     "pages/index/index",
-    "pages/logs/logs",
-    "map",
-    "pages/map"
+    "pages/logs/logs"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -81,8 +81,29 @@ Page({
    */
   onReady: function () {
     this.mapCtx = wx.createMapContext('myMap')
+    const self = this
     // this.mapCtx.moveToLocation()
-
+    wx.request({
+      url: 'https://www.dji.com/cn/api/geo/areas?country=CN&search_radius=140000&drone=spark&level=1%2C2%2C3&zones_mode=total',
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success: function (res) {
+        console.log(res.data)
+        const markers = []
+        res.data.areas.forEach((item, index)=>{
+          markers.push({
+            iconPath: "/resources/location.png",
+            id: index,
+            latitude: item.lat,
+            longitude: item.lng,
+            name: item.name
+          })
+        })
+        console.log(markers, 'markers')
+        self.setData({ markers: markers })
+      }
+    })
   },
 
   /**
